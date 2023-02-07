@@ -44,5 +44,8 @@ module.exports = {
   },
   ignorePatterns: [
     'src/migrations/*.ts'
-  ]
+  ],
+  env: {
+    node: true
+  }
 };
