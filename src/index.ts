@@ -7,6 +7,7 @@ import { Config, createApp, displayServerURL } from '@foal/core';
 // App
 import { AppController } from './app/app.controller';
 import { dataSource } from './db';
+import { logger } from './app/utilities/logger';
 
 async function main() {
   await dataSource.initialize();
@@ -18,4 +19,8 @@ async function main() {
 }
 
 main()
-  .catch(err => { console.error(err.stack); process.exit(1); });
+  .catch(err => {
+    console.error(err.stack);
+    logger.error(err);
+    process.exit(1);
+});
